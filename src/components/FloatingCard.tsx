@@ -39,7 +39,7 @@ export function FloatingCard(props: FloatingCardProps) {
   return (
     <div
       style={{ transform: `rotate(${rotation}deg)` }}
-      className={`cursor-pointer rounded-2xl px-5 py-3 shadow-xl backdrop-blur-sm transition-transform duration-300 hover:scale-105 ${toneStyles[tone]} ${props.className ?? ""}`}
+      className={`cursor-pointer rounded-2xl px-5 py-3 shadow-xl backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-2xl ${toneStyles[tone]} ${props.className ?? ""}`}
     >
       {props.variant === "portal" ? (
         <div className="min-w-52">

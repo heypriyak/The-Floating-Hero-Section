@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Floating Hero Section
+
+Round-1 assignment implementation of a **Legal Work Platform** hero section using **Next.js (App Router)** and **Tailwind CSS**.
+
+## Tech Stack
+
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- lucide-react icons
+
+## What’s Implemented
+
+- Split hero layout (left content + right floating card composition)
+- Reusable `FloatingCard` component with configurable tone, rotation, icon, and label
+- Dedicated `portal` variant for the **John Doe – Portal** card
+- Blurred background blob shapes
+- Typography hierarchy and CTA styling
+- Responsive behavior:
+  - mobile-first centered content
+  - simplified stacked floating cards on small screens
+  - full floating scene from `md` and above
+  - no horizontal overflow
+
+## Bonus Features
+
+- Manual dark mode toggle with `localStorage` persistence
+- Subtle floating animations (keyframes)
+- Fade-in on load
+- Hover elevation on pills (`hover:scale-105`)
+
+## Project Structure
+
+```text
+src/
+	app/
+		globals.css
+		layout.tsx
+		page.tsx
+	components/
+		FloatingCard.tsx
+		ThemeToggle.tsx
+```
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Validation
 
-## Learn More
+```bash
+npm run lint
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Notes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The app was scaffolded in the `round-1-task` folder because the parent folder name contained spaces/capital letters that are not valid for npm package naming.

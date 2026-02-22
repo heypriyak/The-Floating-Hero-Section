@@ -110,3 +110,12 @@ body {
 .animate-fade-in-up {
   animation: fade-in-up 800ms ease-out both;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-float-medium,
+  .animate-float-fast,
+  .animate-fade-in-up {
+    animation: none !important;
+  }
+}
