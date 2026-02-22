@@ -1,26 +1,112 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fbff;
+  --foreground: #18181b;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #090f1a;
+  --foreground: #f3f4f6;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), Inter, Arial, Helvetica, sans-serif;
+}
+
+.blob {
+  position: absolute;
+  height: 22rem;
+  width: 22rem;
+  border-radius: 9999px;
+  filter: blur(48px);
+  pointer-events: none;
+}
+
+.blob-left {
+  left: -6rem;
+  top: 5rem;
+  background: radial-gradient(circle at 35% 35%, #b2d8ff 0, #d9ecff 38%, #eaf4ff 72%, transparent 100%);
+}
+
+.blob-right {
+  right: -7rem;
+  bottom: 2rem;
+  background: radial-gradient(circle at 50% 50%, #9fd4ff 0, #c9e7ff 40%, #e8f3ff 74%, transparent 100%);
+}
+
+
+.dark .blob-left {
+  background: radial-gradient(circle at 35% 35%, #1f4878 0, #173556 40%, #10243d 72%, transparent 100%);
+}
+
+.dark .blob-right {
+  background: radial-gradient(circle at 50% 50%, #205d79 0, #184764 40%, #12334b 72%, transparent 100%);
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes float-medium {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes float-fast {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 5.8s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: float-medium 4.9s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float-fast 4.2s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 800ms ease-out both;
 }

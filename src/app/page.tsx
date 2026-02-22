@@ -1,64 +1,79 @@
-import Image from "next/image";
+import { CheckSquare, FileText, Gavel, Receipt, Scale, ShieldCheck } from "lucide-react";
+import { FloatingCard } from "@/components/FloatingCard";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#eff7ff] via-white to-[#f6f9ff] text-zinc-900 dark:from-[#0c1628] dark:via-[#0a101c] dark:to-[#0d1422] dark:text-zinc-100">
+      <div className="blob blob-left" />
+      <div className="blob blob-right" />
+
+      <main className="mx-auto grid min-h-screen w-full max-w-7xl items-center gap-10 px-6 py-16 lg:grid-cols-2 lg:px-12">
+        <section className="relative z-10 mx-auto max-w-xl animate-fade-in-up text-center lg:mx-0 lg:text-left">
+          <div className="mb-6 flex justify-center lg:hidden">
+            <ThemeToggle />
+          </div>
+
+          <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-xs font-semibold tracking-[0.18em] text-zinc-700 ring-1 ring-zinc-900/10 backdrop-blur-sm dark:bg-zinc-900/70 dark:text-zinc-200 dark:ring-white/10">
+            <Scale className="h-3.5 w-3.5" />
+            LEGAL WORK PLATFORM
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          <h1 className="text-4xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-5xl lg:text-6xl dark:text-zinc-100">
+            Your legal work,
+            <br />
+            organized at a glance.
+          </h1>
+          <p className="mt-6 max-w-lg text-base leading-7 text-zinc-600 sm:text-lg dark:text-zinc-300">
+            Keep matters, billing, documents, and tasks aligned in one elegant workflow built for modern legal teams.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+            <button className="cursor-pointer rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200">
+              Start Free Trial
+            </button>
+            <button className="cursor-pointer rounded-xl border border-zinc-300 bg-white/80 px-5 py-3 text-sm font-semibold text-zinc-800 backdrop-blur-sm transition-transform duration-200 hover:-translate-y-0.5 hover:bg-white dark:border-zinc-700 dark:bg-zinc-900/70 dark:text-zinc-100 dark:hover:bg-zinc-900">
+              Book Demo
+            </button>
+          </div>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-3 md:hidden">
+            <FloatingCard tone="blue" rotation={-3} icon={Receipt} label="Billing" />
+            <FloatingCard tone="orange" rotation={4} icon={Gavel} label="Matters" />
+            <FloatingCard tone="dark" rotation={-4} icon={CheckSquare} label="Tasks" />
+          </div>
+        </section>
+
+        <section className="relative z-10 hidden h-[480px] w-full animate-fade-in-up [animation-delay:120ms] md:block sm:h-[560px]">
+          <div className="absolute right-[5%] top-[2%] hidden lg:block">
+            <ThemeToggle />
+          </div>
+
+          <div className="absolute left-[12%] top-[30%] animate-float-slow">
+            <FloatingCard tone="blue" rotation={-8} icon={Receipt} label="Billing" />
+          </div>
+
+          <div className="absolute right-[10%] top-[8%] animate-float-medium">
+            <FloatingCard tone="orange" rotation={10} icon={Gavel} label="Matters" />
+          </div>
+
+          <div className="absolute left-[35%] top-[8%] animate-float-fast">
+            <FloatingCard tone="dark" rotation={-7} icon={CheckSquare} label="Tasks" />
+          </div>
+
+          <div className="absolute left-[18%] top-[55%] hidden animate-float-medium md:block">
+            <FloatingCard tone="teal" rotation={8} icon={FileText} label="Documents" />
+          </div>
+
+          <div className="absolute right-[5%] top-[48%] hidden animate-float-slow lg:block">
+            <FloatingCard tone="white" rotation={-6} icon={ShieldCheck} label="Compliance" />
+          </div>
+
+          <div className="absolute left-[24%] top-[70%] animate-float-fast sm:left-[30%]">
+            <FloatingCard variant="portal" tone="white" rotation={3} title="John Doe" subtitle="Portal">
+              <div className="mt-3 h-2 w-32 rounded-full bg-zinc-200 dark:bg-zinc-700" />
+              <div className="mt-2 h-2 w-24 rounded-full bg-zinc-200 dark:bg-zinc-700" />
+            </FloatingCard>
+          </div>
+        </section>
       </main>
     </div>
   );
